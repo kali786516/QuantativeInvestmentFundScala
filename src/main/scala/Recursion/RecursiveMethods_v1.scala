@@ -30,9 +30,9 @@ object RecursiveMethods_v1 extends App {
         //sum
         x.map(x => 3).sum,
         // cumulative sum
-        x.map(x => x._2).scanLeft(0)(_+_ .toInt),
+        x.map(x => x._2).scanLeft(0)((x,y) => x + y.toInt),
         // row number
-        x.map(x => 1).scanLeft(1)(_+_)
+        x.map(x => 1).scanLeft(1)((x,y) => x + y)
 
       )
     )
@@ -44,7 +44,7 @@ object RecursiveMethods_v1 extends App {
 
     while (records.length >= numDays) {
 
-      val averageClose = records.map(_.close).take(numDays).sum / numDays
+      val averageClose = records.map(x => x.close).take(numDays).sum / numDays
 
       println(s"Rolling average close for $numDays days " +
         s"date ${records.head.date}: $averageClose")

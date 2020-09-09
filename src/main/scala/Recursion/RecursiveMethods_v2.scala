@@ -2,6 +2,8 @@ package Recursion
 
 import PartiallyAppliedFunctionsImpForTestCasses.AllStocksData
 
+import scala.annotation.tailrec
+
 object RecursiveMethods_v2 extends App {
 
   def readFinanceData():Vector[AllStocksData] = {
@@ -14,6 +16,7 @@ object RecursiveMethods_v2 extends App {
       cols(4).toFloat, cols(5))
   }
 
+  @tailrec
   def rollingAverage(records: Vector[AllStocksData], numDays: Int):Unit = {
 
     if (records.length < numDays) {

@@ -1,6 +1,6 @@
 package TypedParameters
 
-object TypeParameters extends App {
+object TypeParameters_V1 extends App {
 
   def pickRandomStock(tickers: Seq[String]): String = {
     val randomNumber = util.Random.nextInt(tickers.length)
